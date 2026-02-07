@@ -5,6 +5,10 @@ import math
 import time
 import numpy as np
 
+window_name = "Mekatronik Kontrol Paneli"
+cv2.namedWindow(window_name)
+cv2.setWindowProperty(window_name, cv2.WND_PROP_TOPMOST, 1)
+
 
 class Finger:
     def __init__(self, point, base):
@@ -21,7 +25,7 @@ mp_draw = mp.solutions.drawing_utils
 screen_w, screen_h = pyautogui.size()
 smooth_x, smooth_y = 0, 0
 yumusak_katsayi = 0.2
-dokunma_baslangic = 0
+tap_start = 0
 
 left_boundary, up_boundary = 200, 200
 right_boundary, down_boundary = 450, 350
@@ -116,4 +120,5 @@ while True:
         break
 
 cap.release()
+
 cv2.destroyAllWindows()
